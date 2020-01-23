@@ -1,11 +1,8 @@
 import sys as sys
-from random import shuffle
+from random import randint
 
-args_list = sys.argv[1:]
-shuffle(args_list)
+list = sys.argv[1:]
 
-print("Input: ")
-for arg in args_list:
-    print(arg)
-
-print(args_list)
+for i in range(len(list)):
+    rand_index = randint(0, len(list)-1)
+    print(list[rand_index])
