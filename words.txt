@@ -1,0 +1,6 @@
+circle
+cast
+quarters
+deity
+elements
+invoke
