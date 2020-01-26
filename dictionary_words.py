@@ -8,9 +8,10 @@ def read_file():
     my_massive_list = open("url/share/dict/words", 'r')
     my_words = my_massive_list.readlines()
     my_massive_list.close()
+    return my_words
 
 
-def select_words():
+def select_words(my_words):
     '''select a random set of words and store in a data type'''
     rand_index = randint(0, len(my_words) - 1)
 
