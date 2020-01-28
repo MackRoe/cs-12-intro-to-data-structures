@@ -25,10 +25,10 @@ def select_word(my_words):
 def append_string(string_length):
     '''compile string helper function'''
     random_string = ""
-    while string_length < 0:
-        random_string = random_string + select_word()
+    while string_length > 0:
+        random_string = random_string + select_word(my_words)
         string_length -= 1
-    pass
+    print(random_string)
 
 
 def output_string():
@@ -38,4 +38,6 @@ def output_string():
 # hint: look at rearrange() and random_python_quote()
 
 # select_word()
-output_string()
+# output_string()
+
+append_string(string_length)
