@@ -35,9 +35,5 @@ def output_string():
     '''output the string'''
     print(select_word(my_words))
 
-# hint: look at rearrange() and random_python_quote()
-
-# select_word()
-# output_string()
 
 append_string(string_length)
