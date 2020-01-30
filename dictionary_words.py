@@ -31,9 +31,9 @@ def append_string(string_length):
     print(random_string)
 
 
-def output_string():
-    '''output the string'''
-    print(select_word(my_words))
+# def output_string():
+#     '''output the string'''
+#     print(select_word(my_words))
 
 
 append_string(string_length)

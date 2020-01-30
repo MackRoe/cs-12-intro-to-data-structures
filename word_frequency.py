@@ -1,7 +1,18 @@
 filename = "transient.txt"
 lines = open(filename, "r").readlines()
+transient_txt_words = []
+
+
 for line in lines:
-    transient_txt_words = line.split(' ')
+    wordslist = line.split(' ')
+    for word in wordslist:
+        transient_txt_words.append(word)
+# print(transient_txt_words)
+# input()
+
+print('transient_txt_words contains: ')
+for word in transient_txt_words:
+    print(word)
 
 my_histogram = {}
 
@@ -15,7 +26,7 @@ def histogram():
         word = word.rstrip()
 
         my_histogram[word] = my_histogram.get(word, 0)+1
-    print(my_histogram)
+    print(my_histogram)  # print to test
     return my_histogram
 
 
