@@ -1,3 +1,6 @@
+# reference only
+# TA plz do not evaluate
+
 filename = "words.txt"
 lines = open(filename, "r")
 
