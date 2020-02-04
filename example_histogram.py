@@ -1,4 +1,4 @@
-# reference only
+# FOR REFERENCE ONLY
 # TA plz do not evaluate
 
 filename = "words.txt"
