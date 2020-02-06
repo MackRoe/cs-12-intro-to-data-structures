@@ -1,7 +1,7 @@
 import sys as sys
 
 '''gets the word for which frequency of occurance value is sought'''
-search_word = str(sys.argv[1])
+'''search_word = str(sys.argv[1])
 
 filename = "transient.txt"
 lines = open(filename, "r").readlines()
@@ -20,14 +20,15 @@ for line in lines:
 # for word in transient_txt_words:
 #     print(word)
 
-my_histogram = {}
+my_histogram = {}'''
 
 
-def histogram():
+def histogram(transient_txt_words):
     '''function which takes a source_text argument (can be either a filename or
     the contents of the file as a string, your choice) and return a histogram
     data structure that stores each unique word along with the number of times
     the word appears in the source text'''
+    my_histogram = {}
     for word in transient_txt_words:
         word = word.strip(' . , ; " \n _')
         # print(word)
@@ -51,7 +52,7 @@ def frequency(word, any_histogram):
     return frequency_of_word
 
 
-histogram()
+#histogram()
 
-print('Histogram contains ' + str(unique_words(my_histogram)) + ' unique words')
-print(search_word + ' appears ' + str(frequency(search_word, my_histogram)) + ' times.')
+#print('Histogram contains ' + str(unique_words(my_histogram)) + ' unique words')
+#print(search_word + ' appears ' + str(frequency(search_word, my_histogram)) + ' times.')

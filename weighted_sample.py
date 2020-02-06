@@ -12,7 +12,7 @@ def sample_by_frequency(histogram):
     # randint() for index
     loop_count = 0
 
-    while loop_count < len(word_counts):
+    while loop_count < len(histogram):
         new_list = []
         for word, word_count in histogram.items():
             count = 0

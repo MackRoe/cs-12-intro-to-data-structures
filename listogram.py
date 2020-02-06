@@ -31,7 +31,9 @@ def listogram(lines):
     listogram = []
 
     # TODO: loop through each word in lines
-
+    for word in lines:
+        word = word.strip()
+        
     # TODO: call get_index() and save the result to a variable
 
     # TODO: if the result is the non valid index value then
