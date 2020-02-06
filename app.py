@@ -18,13 +18,20 @@ def make_the_words():
     for line in lines:
         wordslist = line.split(' ')
         for word in wordslist:
-            word = word.strip(' . , ;" \n _')
+            word = word.strip(' . , ;" \n _ ?')
+
             transient_txt_words.append(word)
 
     my_histogram = histogram(transient_txt_words)
 
-    word = sample_by_frequency(my_histogram)
-    return word
+# put together words into a sentence
+    sentence = ''
+    num_words = 10
+    for i in range(num_words):
+        word = sample_by_frequency(my_histogram)
+        sentence = sentence + " " + word
+    return sentence
+
 
 
 if __name__ == '__main__':
