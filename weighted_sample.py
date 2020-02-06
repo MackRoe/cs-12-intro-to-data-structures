@@ -21,12 +21,12 @@ def sample_by_frequency(histogram):
                 count += 1
         loop_count += 1
 
-    print("New List:")
-    for word in new_list:
-        print(word)
+    # print("New List:")
+    # for word in new_list:
+    #     print(word)
 
     index = randint(0, len(new_list) - 1)
-    print("Random Index is " + str(index))
+    # print("Random Index is " + str(index))
 
 #     -- in class example --
 # random_index = randint(0, sum(histogram.values()))
