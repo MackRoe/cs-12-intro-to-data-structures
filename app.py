@@ -21,7 +21,7 @@ def make_the_words():
             word = word.strip(' . , ;" \n _')
             transient_txt_words.append(word)
 
-    my_histogram = histogram(transient_txt_words)  # confirm correct variable filename
+    my_histogram = histogram(transient_txt_words)
 
     word = sample_by_frequency(my_histogram)
     return word
