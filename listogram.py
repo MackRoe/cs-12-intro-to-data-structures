@@ -1,4 +1,6 @@
-# from dictogram import histogram <== check import
+from word_frequency import histogram
+
+lines = open("words.txt", "r").readlines()
 
 # we are building a histogram that looks like this
 # [["one", 1], ["fish", 4], ["red", 1]]
@@ -10,30 +12,40 @@
 # it returns the index of the inner list if the word is found, and some
 # non valid index value like -1 or "nope" if not
 
-def get_index(word, listogram):
-    # TODO: loop through each item in the input listogram
 
+def get_index(word, listogram):
     # TODO: create a variable that keeps track of the index of the
     # current item we are checking
-
-    # TODO: each item is a list where the first element is
-    # the word and the second element is the count
-
-    # TODO: check if the word in the listogram is equal to the
-    # word parameter (the word we are searching for)
-    # if it is, we have found it and can return the index
-    # otherwise we add one to the current index and keep searching
+    current_index = 0
+    # TODO: loop through each item in the input listogram
+    for item in listogram:
+        # print(item)
+        # TODO: check if the word in the listogram is equal to the
+        # word parameter (the word we are searching for)
+        if item[0] == word:
+            # if it is, we have found it and can return the index
+            return current_index
+        else:
+            # otherwise we add one to the current index and keep searching
+            current_index += 1
     # if we never find the word then we can return our non valid index value
-    pass
+    return -1
 
 
 def listogram(lines):
     listogram = []
+    for word in lines:
+        index = get_index(word, listogram)
+        if index == -1:
+            listogram.append([word, 1])
+        else:
+            listogram[index][1] += 1
+    return listogram
 
     # TODO: loop through each word in lines
     for word in lines:
         word = word.strip()
-        
+
     # TODO: call get_index() and save the result to a variable
 
     # TODO: if the result is the non valid index value then
@@ -46,5 +58,5 @@ def listogram(lines):
     # TODO: return the listogram
 
 
-lines = open("words.txt", "r").readlines()
+
 print(listogram(lines))
