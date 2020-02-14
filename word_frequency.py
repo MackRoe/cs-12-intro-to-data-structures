@@ -52,7 +52,7 @@ def frequency(word, any_histogram):
     return frequency_of_word
 
 
-#histogram()
+# histogram()
 
-#print('Histogram contains ' + str(unique_words(my_histogram)) + ' unique words')
-#print(search_word + ' appears ' + str(frequency(search_word, my_histogram)) + ' times.')
+# print('Histogram contains ' + str(unique_words(my_histogram)) + ' unique words')
+# print(search_word + ' appears ' + str(frequency(search_word, my_histogram)) + ' times.')
