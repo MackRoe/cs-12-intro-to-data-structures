@@ -40,4 +40,5 @@ def sample_by_frequency(histogram):
 
     return new_list[index]
 
+
 print('Random Word: ' + sample_by_frequency(word_counts))

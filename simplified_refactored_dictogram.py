@@ -1,5 +1,7 @@
 from random import randint
 
+word_list = ['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']
+
 
 class Dictogram:
 
@@ -30,19 +32,28 @@ class Dictogram:
         frequency_of_word = self.dictionary_histogram[word]
         return frequency_of_word
 
-    def unique_words(self):
+    def unique_words(self, dictogram):
         '''returns the number of unique words in the dictionary histogram'''
-        # TODO: use your unique words function as a starting point to complete
-        # this method
-        pass
+        number_of_unique_words = len(dictogram)
+        return number_of_unique_words
 
-    def sample(self):
+    def sample(self, dictogram):
         '''Randomly samples from the dictionary histogram based on the
         frequency, returns a word'''
+        loop_count = 0
 
-        # TODO: use your sample function as a starting point to complete this
-        # method
-        pass
+        while loop_count < len(dictogram):
+            new_list = []
+            for word, word_count in dictogram.items():
+                count = 0
+                while word_count > count:
+                    new_list.append(word)
+                    count += 1
+            loop_count += 1
+
+        index = randint(0, len(new_list) - 1)
+        word = new_list[index]
+        return word
 
 
 def print_dictogram(word_list):
@@ -101,4 +112,4 @@ def print_dictogram_samples(dictogram):
     print()
 
 
-print_dictogram(['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'])
+print_dictogram(word_list)
