@@ -11,7 +11,7 @@ transient_txt_words = []
 for line in lines:
     wordslist = line.split(' ')
     for word in wordslist:
-        word = word.strip(' . , ;" \n _')
+        word = word.strip(' . , ;" \n _ *')
         transient_txt_words.append(word)
 # print(transient_txt_words)
 # input()
