@@ -32,7 +32,8 @@ def make_the_words():
         sentence = sentence + " " + word
     return sentence
 
-
+# potential terminal syntax for heroku deployment
+# http://clouddatafacts.com/heroku/heroku-flask/heroku_flask_getting_started.html
 
 if __name__ == '__main__':
     app.run(debug=True)
