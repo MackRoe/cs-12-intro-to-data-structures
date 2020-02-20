@@ -75,7 +75,6 @@ class Dictogram:
             freq = dictogram.frequency(list_word)
             print('The word: {}, occurs {} times'.format(list_word, freq))
 
-
     def print_dictogram_samples(dictogram):
         '''Compares sampled frequency to observed frequency'''
 
