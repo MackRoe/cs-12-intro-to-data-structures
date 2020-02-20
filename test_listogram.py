@@ -1,5 +1,5 @@
 # test_listogram.py
-from listogram import Listogram
+from listogram import listogram
 
 # known inputs and their expected results
 fish_words = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']

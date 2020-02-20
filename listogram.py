@@ -1,4 +1,4 @@
-from word_frequency import histogram
+from Tweet_Generator.word_frequency import histogram
 
 lines = open("words.txt", "r").readlines()
 
