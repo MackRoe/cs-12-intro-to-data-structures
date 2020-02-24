@@ -13,13 +13,46 @@ class Listogram:
         self.tokens = self.get_num_tokens()
         self.types = self.unique_words()
 
+    def get_index(self, word, list_histogram):
+        '''searches in the list histogram parameter and returns the index of
+        the inner list that contains the word if present'''
+        # TODO: use your get_index function as a starting point to complete
+        # this method
+        current_index = 0
+        for item in list_histogram:
+            # print(item)
+            # TODO: check if the word in the listogram is equal to the
+            # word parameter (the word we are searching for)
+            if item[0] == word:
+                # if it is, we have found it and can return the index
+                return current_index
+            else:
+                # otherwise we add one to the current index and keep searching
+                current_index += 1
+        # if word not found, return non valid index value
+        return -1
+
     def build_listogram(self):
         '''Creates a histogram list of lists using the word_list property and
         returns it'''
-
+        lines = self.word_list
         # TODO: use your listogram function as a starting point to complete
         # this method
-        pass
+        listogram = []
+        # loop through each word in lines
+        print(lines)
+        for word in lines:
+
+            index = self.get_index(word, listogram)
+            # print("listogram in build_listogram() = " + word[index])
+            word = word.strip()
+            if index == -1:
+                listogram.append([word, 1])
+            else:
+                listogram[index][1] += 1
+        print("this: ")
+        print(listogram)
+        return listogram
 
     def get_num_tokens(self):
         '''gets the number of tokens in the listogram'''
@@ -28,13 +61,6 @@ class Listogram:
         for item in self.list_histogram:
             tokens += item[1]
         return tokens
-
-    def get_index(self, word, list_histogram):
-        '''searches in the list histogram parameter and returns the index of
-        the inner list that contains the word if present'''
-        # TODO: use your get_index function as a starting point to complete
-        # this method
-        pass
 
     def frequency(self, word):
         '''returns the frequency or count of the given word in the list of
@@ -49,7 +75,8 @@ class Listogram:
         # TODO: use your unique words function as a starting point to complete
         # this method
         # You will need to adapt it a little bit to work with listogram
-        pass
+        number_of_unique_words = len(self.list_histogram)
+        return number_of_unique_words
 
     def sample(self):
         '''Randomly samples from the list of list histogram based on the
@@ -58,6 +85,24 @@ class Listogram:
         # TODO: use your sample function as a starting point to complete this
         # method
         # You will need to adapt it a little bit to work with listogram
+
+        new_list = []
+        for sublist in self.list_histogram:
+            word = sublist[0]
+            word_count = sublist[1]
+            count = 0
+            while word_count > count:
+                new_list.append(word)
+                count += 1
+
+        # print("New List:")
+        # for word in new_list:
+        #     print(word)
+
+        index = randint(0, len(new_list) - 1)
+        # print("Random Index is " + str(index))
+
+        return new_list[index]
 
 
 # following functions are outside of class
