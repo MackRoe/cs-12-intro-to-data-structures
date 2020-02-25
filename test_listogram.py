@@ -5,6 +5,7 @@ from listogram import listogram
 fish_words = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
 fish_list = [('one', 1), ('fish', 4), ('two', 1), ('red', 1), ('blue', 1)]
 
+
 def test_entries():
     # NOTE: This test assumes Listogram is implemented as a list of tuples,
     # but if you implement it as a list of lists (or a list of count-lists)
@@ -13,6 +14,7 @@ def test_entries():
     # Verify histogram as list of entries like [(word, count)]
     assert len(listogram.list_histogram) == 5
     assert len(listogram.list_histogram) == len(fish_list)  # Ignore item order
+
 
 def test_frequency():
     histogram = Listogram(fish_words)
@@ -30,11 +32,13 @@ def test_tokens():
     assert len(fish_words) == 8
     assert listogram.tokens == 8
 
+
 def test_types():
     listogram = Listogram(fish_words)
     # Verify count of distinct word types
     assert len(set(fish_words)) == 5
     assert listogram.types == 5
+
 
 def test_sample():
     listogram = Listogram(fish_words)
