@@ -40,6 +40,8 @@ class Listogram:
         # this method
         listogram = []
         # loop through each word in lines
+        print('')
+        print('>> build_listogram method called <<')
         print(lines)
         for word in lines:
 
@@ -50,8 +52,9 @@ class Listogram:
                 listogram.append([word, 1])
             else:
                 listogram[index][1] += 1
-        print("this: ")
+        print("build_listogram method returns: ")
         print(listogram)
+        print(">> end build_listogram <<")
         return listogram
 
     def get_num_tokens(self):
@@ -68,7 +71,21 @@ class Listogram:
         # TODO: use your frequency and get_index function as a starting point
         # to complete this method
         # You will need to adapt it a little bit to work with listogram
-        pass
+        #count = 0
+        #main_list_index = 0
+        # find match for word in list.sublist[sublist_key_index]
+        '''while count < len(self.list_histogram) - 1:
+            print("Frequency function activated.")
+            for inner_list in self.list_histogram[main_list_index]:
+                print("inner list loop " + str(count))
+                for item in inner_list:
+                    print("Item in inner list: ")
+                if inner_list[0] == word.lower():
+                    frequency_of_word = inner_list[1]
+                count += 1'''
+        index_of_inner_list = self.get_index(word, self.list_histogram)
+        inner_list = self.list_histogram[index_of_inner_list]
+        return inner_list[1]
 
     def unique_words(self):
         '''returns the number of unique words in the list of lists histogram'''
@@ -111,6 +128,7 @@ def print_listogram(word_list):
     properties and samples from it'''
 
     print()
+    print(">>> print_listogram method called <<<")
     print('List of Lists Histogram:')
     print('word list: {}'.format(word_list))
     # Create a dictogram and display its contents
@@ -120,6 +138,7 @@ def print_listogram(word_list):
     for word in word_list[-2:]:
         freq = listogram.frequency(word)
         print('{!r} occurs {} times'.format(word, freq))
+    print(">> end print_listogram method <<")
     print()
     print_dictogram_samples(listogram)
 
@@ -127,6 +146,8 @@ def print_listogram(word_list):
 def print_dictogram_samples(listogram):
     '''Compares sampled frequency to observed frequency'''
 
+    print('')
+    print('>>> print_dictogram_samples method called <<<')
     print('List of Lists Histogram samples:')
     # Sample the histogram 10,000 times and count frequency of results
     samples_list = [listogram.sample() for _ in range(10000)]
