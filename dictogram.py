@@ -40,12 +40,12 @@ class Dictogram:
         number_of_unique_words = len(dictogram)
         return number_of_unique_words
 
-    def sample(self, dictogram):
+    def sample(self):
         '''Randomly samples from the dictionary histogram based on the
         frequency, returns a word'''
         loop_count = 0
 
-        while loop_count < len(dictogram):
+        while loop_count < len(list(self.dictionary_histogram.keys())):
             new_list = []
             for word, word_count in dictogram.items():
                 count = 0

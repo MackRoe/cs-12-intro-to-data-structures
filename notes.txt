@@ -1,1 +1,0 @@
-build frequency() in class_listogram

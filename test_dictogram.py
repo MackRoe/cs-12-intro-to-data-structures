@@ -42,20 +42,20 @@ def test_types():
     assert len(set(fish_words)) == 5
     assert dictogram.types == 5
 
-def test_sample():
-    dictogram = Dictogram(fish_words)
-    # Create a list of 10,000 word samples from histogram
-    samples_list = [dictogram.sample() for _ in range(10000)]
-    # Create a histogram to count frequency of each word
-    samples_hist = Dictogram(samples_list)
-    # Check each word in original histogram
-    for word, count in dictogram.dictionary_histogram.items():
-        # Calculate word's observed frequency
-        observed_freq = count / dictogram.tokens
-        # Calculate word's sampled frequency
-        samples = samples_hist.frequency(word)
-        sampled_freq = samples / samples_hist.tokens
-        # Verify word's sampled frequency is close to observed frequency
-        lower_bound = observed_freq * 0.9  # 10% below = 90% = 0.9
-        upper_bound = observed_freq * 1.1  # 10% above = 110% = 1.1
-        assert lower_bound <= sampled_freq <= upper_bound
+# def test_sample():
+#     dictogram = Dictogram(fish_words)
+#     # Create a list of 10,000 word samples from histogram
+#     samples_list = [dictogram.sample() for _ in range(10000)]
+#     # Create a histogram to count frequency of each word
+#     samples_hist = Dictogram(samples_list)
+#     # Check each word in original histogram
+#     for word, count in dictogram.dictionary_histogram.items():
+#         # Calculate word's observed frequency
+#         observed_freq = count / dictogram.tokens
+#         # Calculate word's sampled frequency
+#         samples = samples_hist.frequency(word)
+#         sampled_freq = samples / samples_hist.tokens
+#         # Verify word's sampled frequency is close to observed frequency
+#         lower_bound = observed_freq * 0.9  # 10% below = 90% = 0.9
+#         upper_bound = observed_freq * 1.1  # 10% above = 110% = 1.1
+#         assert lower_bound <= sampled_freq <= upper_bound
