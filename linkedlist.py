@@ -119,9 +119,24 @@ class LinkedList(object):
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # Loop through all nodes to find one whose data matches given item √
-        found_data = self.find(item)
+        # CREDIT:
+        # https://www.geeksforgeeks.org/linked-list-set-3-deleting-node/
 
-        if found_data is None:
+        temp = self.head
+
+        if (temp is not None):
+            if (temp.data == item):
+                self.head = temp.next
+                temp = None
+                return
+
+        while(temp is not None):
+            if temp.data == item:
+                break
+            prev = temp
+            temp = temp.next
+
+        if temp.data is None:
             # raise error to tell user that delete has failed √
             raise ValueError('Item not found: {}'.format(item))
         else:
@@ -129,6 +144,9 @@ class LinkedList(object):
             self.previous = self.next
             print(">> Item Deleted << (but not really)")
 
+        prev.next = temp.next
+
+        temp = None
 
 
 def test_linked_list():
