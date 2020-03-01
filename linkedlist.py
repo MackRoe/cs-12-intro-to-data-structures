@@ -124,6 +124,9 @@ class LinkedList(object):
 
         temp = self.head
 
+        print(">> Delete Function Activated <<")
+        print("self.head == " + str(self.head))
+
         if (temp is not None):
             if (temp.data == item):
                 self.head = temp.next
