@@ -74,7 +74,7 @@ class HashTable(object):
         # Find bucket where given key belongs
         for bucket in self.buckets:
             # Check if key exists in bucket
-            for key, value in bucket:
+            for key, value in bucket.items():
                 if key == key:
                     return True
                 else:
@@ -85,7 +85,7 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Find bucket where given key belongs
         for bucket in self.buckets:
-            for bucket_key, bucket_value in bucket:
+            for bucket_key, bucket_value in bucket.items():
                 # Check if key-value entry exists in bucket
                 if bucket_key == key:
                     # If found, return value associated with given key
@@ -100,10 +100,12 @@ class HashTable(object):
         # Find bucket where given key belongs
         for bucket in self.buckets:
             # Check if key-value entry exists in bucket
-            for bucket_key, bucket_value in bucket:
+            for bucket_key, bucket_value in bucket.items():
                 if bucket_key == key:
                     # If found, update value associated with given key
                     # and insert given key-value entry into bucket
+                    # TODO:
+                    # -- use LinkedList methods by way of self.buckets --
                     bucket_value = value
                     print()
                     print("> Set Method Action Completed <")
