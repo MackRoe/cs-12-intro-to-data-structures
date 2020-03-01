@@ -39,10 +39,12 @@ class HashTable(object):
         Running time: O(n). Reason: Python must step through each
         key value pair in order to collect node data."""
         hash_values = []
-        # Loop through all buckets √
-        for key, value in bucket.items():
-            # Collect all values in each bucket √
-            hash_values.append(value):
+
+        for bucket in self.bucket.items():
+            # Loop through all buckets √
+            for key, value in bucket.items():
+                # Collect all values in each bucket √
+                hash_values.append(value)
         return hash_values
 
     def items(self):
