@@ -73,7 +73,7 @@ class LinkedList(object):
             self.head = new_node
         # Append node after tail, if it exists √
         else:
-            if self.head is None:
+            if self.head is not None:
                 self.tail.next = new_node
 
         self.tail = new_node
@@ -119,37 +119,50 @@ class LinkedList(object):
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # Loop through all nodes to find one whose data matches given item √
-        # CREDIT:
+        # Reference CREDIT:
         # https://www.geeksforgeeks.org/linked-list-set-3-deleting-node/
 
         temp = self.head
+        prev = None
 
         print(">> Delete Function Activated <<")
         print("self.head == " + str(self.head))
 
-        if (temp is not None):
-            if (temp.data == item):
-                self.head = temp.next
-                temp = None
-                return
-
-        while(temp is not None):
-            if temp.data == item:
-                break
-            prev = temp
-            temp = temp.next
-
         if temp.data is None:
             # raise error to tell user that delete has failed √
             raise ValueError('Item not found: {}'.format(item))
-        else:
+
+        while (temp is not None):
             # Update previous node to skip around node with matching data √
-            self.previous = self.next
-            print(">> Item Deleted << (but not really)")
+            if (temp.data == item):
+                # if item is found at head node
+                if temp != self.tail:
+                    print("at start of while loop, self.head = " + str(self.head))
+                    print("and temp.next = " + str(temp.next))
+                    prev.next = temp.next
+                    print("after self.head=temp.next, self.head=" + str(self.head))
+                    temp.next = None
+                    print(str(item) + " deleted")
+                else:
+                    self.tail = prev
+                    prev.next = None
+                    temp = None
+                    print(str(item) + " deleted")
+            elif temp.data != item:
+                prev = temp
+                temp = temp.next
 
-        prev.next = temp.next
-
-        temp = None
+                print('Searching.. Node pointer updated')
+        print("after while loop, self.head = " + str(self.head))
+        # while(temp is not None):
+        #     if temp.data == item:
+        #         break
+        #     prev = temp
+        #     temp = temp.next
+        #
+        # prev.next = temp.next
+        #
+        # temp = None
 
 
 def test_linked_list():

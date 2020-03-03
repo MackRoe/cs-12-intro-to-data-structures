@@ -1,11 +1,12 @@
 from flask import Flask
 from word_frequency import histogram
 from weighted_sample import sample_by_frequency
+# from markov import MarkovChain
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/')  # see gallary
 def make_the_words():
     # build Histogram
     # my_file = open("./words.txt", "r")
@@ -13,7 +14,7 @@ def make_the_words():
     # lines = my_file.readlines()
     filename = "transient.txt"
     lines = open(filename, "r").readlines()
-    transient_txt_words = []
+    transient_txt_words = []  # word_list
 
     for line in lines:
         wordslist = line.split(' ')
@@ -27,9 +28,14 @@ def make_the_words():
 # put together words into a sentence
     sentence = ''
     num_words = 10
+    ''' # comment out to impliment markov
     for i in range(num_words):
         word = sample_by_frequency(my_histogram)
-        sentence = sentence + " " + word
+        sentence = sentence + " " + word '''
+
+    # uncomment to impliment markov
+    markovchain = MarkovChain(word_list)
+    sentence = markovchain.walk(num_words)
     return sentence
 
 # potential terminal syntax for heroku deployment
