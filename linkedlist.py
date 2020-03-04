@@ -137,22 +137,50 @@ class LinkedList(object):
             if (temp.data == item):
                 # if item is found at head node
                 if temp != self.tail:
+                    # if not at the end of the linked list
                     print("at start of while loop, self.head = " + str(self.head))
                     print("and temp.next = " + str(temp.next))
-                    prev.next = temp.next
-                    print("after self.head=temp.next, self.head=" + str(self.head))
-                    temp.next = None
-                    print(str(item) + " deleted")
-                else:
-                    self.tail = prev
-                    prev.next = None
-                    temp = None
-                    print(str(item) + " deleted")
-            elif temp.data != item:
-                prev = temp
-                temp = temp.next
 
-                print('Searching.. Node pointer updated')
+                    # check if item is found in first node of linked list
+                    if temp != self.head:
+                        # found item not located at first node
+                        prev.next = temp.next
+                        print("after self.head=temp.next, self.head=" + str(self.head))
+                        temp = None
+                        print(str(item) + " deleted")
+                        return
+                    else:
+                        # found item IS at first node
+                        self.head = temp.next
+                        print(str(item) + " deleted")
+                        return
+                else:
+                    # found item is at END of linked list
+                    if temp == self.head:
+                        # item found at END and HEAD node
+                        temp = None
+                        print(str(item) + ' deleted')
+                        return
+                    else:
+                        # found item is at END of list but NOT HEAD
+                        self.tail = prev
+                        prev.next = None
+                        temp = None
+                        print(str(item) + " deleted")
+                        return
+            elif temp.data != item:
+                if temp == self.tail:
+                    temp = None
+                    prev = None
+                    print(str(item) + "not in linked list.")
+                    return
+
+            # return to loop
+            prev = temp
+            temp = temp.next
+
+            print('Searching.. Node pointer updated')
+
         print("after while loop, self.head = " + str(self.head))
         # while(temp is not None):
         #     if temp.data == item:
@@ -163,6 +191,13 @@ class LinkedList(object):
         # prev.next = temp.next
         #
         # temp = None
+
+    def print_ll(self):
+        print("Entering print")
+        current = self.head
+        while current is not None:
+            print(current.data)
+            current = current.next
 
 
 def test_linked_list():
@@ -194,4 +229,12 @@ def test_linked_list():
 
 
 if __name__ == '__main__':
-    test_linked_list()
+    #test_linked_list()
+    ll = LinkedList(['A', 'B', 'C'])
+
+    # ll.delete('A')
+
+    # ll.delete('C')
+    ll.print_ll()
+    ll.delete('B')
+    ll.print_ll()
