@@ -86,8 +86,9 @@ class LinkedList(object):
         # Prepend node before head, if it exists √
         if self.head is None:
             self.head = new_node
+            self.tail = new_node
         else:
-            self.head.next = self.head
+            new_node.next = self.head
             self.head = new_node
 
     def find(self, quality):
@@ -98,21 +99,23 @@ class LinkedList(object):
         current = self.head
         while current is not None:
             # check for match with quality() function on first node
-            if quality(current.data) is not None:
-
-                current = None
+            if quality(current.data):
                 return current.data
-            elif current == self.tail:
-                # check for end of linked list
-                current = None
-                print("Not Found")
-            else:
-                # otherwise, check for match with quality() on next node
-                current = self.next
-                if quality(current.data) is not None:
 
-                    current = None
-                    return current.data
+            current = current.next
+
+        return None
+        # elif current == self.tail:
+        #         # check for end of linked list
+        #         current = None
+            #     print("Not Found")
+            # else:
+            #     # otherwise, check for match with quality() on next node
+            #     current = self.next
+            #     if quality(current.data) is not None:
+            #
+            #         current = None
+            #         return current.data
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
@@ -128,16 +131,12 @@ class LinkedList(object):
         print(">> Delete Function Activated <<")
         print("self.head == " + str(self.head))
 
-        if temp.data is None:
-            # raise error to tell user that delete has failed √
-            raise ValueError('Item not found: {}'.format(item))
-
         while (temp is not None):
             # Update previous node to skip around node with matching data √
             if (temp.data == item):
-                # if item is found at head node
+                # if item is found
                 if temp != self.tail:
-                    # if not at the end of the linked list
+                    # if item not at TAIL
                     print("at start of while loop, self.head = " + str(self.head))
                     print("and temp.next = " + str(temp.next))
 
@@ -145,7 +144,7 @@ class LinkedList(object):
                     if temp != self.head:
                         # found item not located at first node
                         prev.next = temp.next
-                        print("after self.head=temp.next, self.head=" + str(self.head))
+                        print("Item " + str(item) + " found at " + str(temp))
                         temp = None
                         print(str(item) + " deleted")
                         return
@@ -159,6 +158,8 @@ class LinkedList(object):
                     if temp == self.head:
                         # item found at END and HEAD node
                         temp = None
+                        self.head = None
+                        self.tail = None
                         print(str(item) + ' deleted')
                         return
                     else:
@@ -168,12 +169,12 @@ class LinkedList(object):
                         temp = None
                         print(str(item) + " deleted")
                         return
-            elif temp.data != item:
-                if temp == self.tail:
-                    temp = None
-                    prev = None
-                    print(str(item) + "not in linked list.")
-                    return
+            # elif temp.data != item:
+            #     if temp == self.tail:
+            #         temp = None
+            #         prev = None
+            #         print(str(item) + " not in linked list.")
+            #         return
 
             # return to loop
             prev = temp
@@ -191,6 +192,9 @@ class LinkedList(object):
         # prev.next = temp.next
         #
         # temp = None
+
+        # raise error to tell user that delete has failed √
+        raise ValueError('Item not found: {}'.format(item))
 
     def print_ll(self):
         print("Entering print")
@@ -229,12 +233,12 @@ def test_linked_list():
 
 
 if __name__ == '__main__':
-    #test_linked_list()
-    ll = LinkedList(['A', 'B', 'C'])
+    test_linked_list()
+    # ll = LinkedList(['A', 'B', 'C'])
 
     # ll.delete('A')
 
     # ll.delete('C')
-    ll.print_ll()
-    ll.delete('B')
-    ll.print_ll()
+    # ll.print_ll()
+    # ll.delete('B')
+    # ll.print_ll()
