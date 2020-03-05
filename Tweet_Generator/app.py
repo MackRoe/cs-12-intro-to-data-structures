@@ -1,7 +1,7 @@
 from flask import Flask
 from word_frequency import histogram
 from weighted_sample import sample_by_frequency
-# from markov import MarkovChain
+from markov import MarkovChain
 
 app = Flask(__name__)
 
@@ -34,7 +34,7 @@ def make_the_words():
         sentence = sentence + " " + word '''
 
     # uncomment to impliment markov
-    markovchain = MarkovChain(word_list)
+    markovchain = MarkovChain(transient_txt_words)
     sentence = markovchain.walk(num_words)
     return sentence
 
