@@ -47,7 +47,7 @@ class Dictogram:
 
         while loop_count < len(list(self.dictionary_histogram.keys())):
             new_list = []
-            for word, word_count in dictogram.items():
+            for word, word_count in self.dictionary_histogram.items():
                 count = 0
                 while word_count > count:
                     new_list.append(word)

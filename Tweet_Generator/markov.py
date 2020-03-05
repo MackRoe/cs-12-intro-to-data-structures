@@ -42,10 +42,10 @@ class MarkovChain:
         for i in range(num_words):
             dictogram = chain[word]
             # select a random word from weighted sample of potential next words
-            word = self.dictionary_histogram.sample()
+            word = dictogram.sample()
             #   get random word from weighted sample generated from Dictogram
             #       associated with the indicated key
-            walked_string += word
+            walked_string += word + " "
             # append selected word to string
         return walked_string
 
